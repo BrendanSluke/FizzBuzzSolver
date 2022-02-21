@@ -6,11 +6,11 @@ The Fizz Buzz Solver is a web API that solves the classic FizzBuzz code challeng
 
 This specific implementation is written in C# and it uses the ASP.NET Core framework for the web API feature.
 
-## Get Started Using the API
+## Getting Started Using the API
 
 The quickest way to get the Fizz Buzz Solver up and running is to run the API locally.
 
-Once you have an instance of the API running, you can navigate to `/swagger/index.html` to start manually making requests again the `/api/solve` endpoint.
+Once you have an instance of the API running, you can navigate to `/swagger/index.html` to start manually making requests against the `/api/solve` endpoint.
 
 Example Requests and Responses are listed below.
 
@@ -20,7 +20,7 @@ The API has one endpoint `/api/solve` and the endpoint takes in a JSON body.
 
 This JSON body consists of 2 properties:
 
-- `maxNumber`: Indicates how many numbers the current FizzBuzz request should solve for (Example 100 in the classic FizzBuzz case)
+- `maxNumber`: Indicates how many numbers the current FizzBuzz request should solve for (Example: 100 in the classic FizzBuzz case)
 - `divisors`: This is a dynamically sized collection of key-value pairs that allows you to customize the total number of divisors along with each divisor's numeric value and the output string value. (Example: 3-Fizz and 5-Buzz for the classic FizzBuzz case)
 
 ### Example Input JSON Body 1 (Classic Case)
