@@ -21,9 +21,9 @@ The API has one endpoint `/api/solve` and the endpoint takes in a JSON body.
 This JSON body consists of 2 properties:
 
 - `maxNumber`: Indicates how many numbers the current FizzBuzz request should solve for (Example: 100 in the classic FizzBuzz case)
-- `divisors`: This is a dynamically sized collection of of type `Divisor`, that has 2 properties, a `number` and a `printableOutput`. (Example: 3-Fizz and 5-Buzz for the classic FizzBuzz case)
+- `divisors`: This is a dynamically sized collection of type `Divisor`, that has 2 properties, a `number` and a `printableOutput`. (Example: 3-Fizz and 5-Buzz for the classic FizzBuzz case)
 
-The `Divisor` type allows you to customize the total number of divisors along with each divisor's numeric value and the printable output value.
+The `Divisor` type allows you to customize each divisor's numeric value and the printable output value.
 
 ### Example Input JSON Body 1 (Classic Case)
 
