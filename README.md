@@ -105,3 +105,13 @@ Fizz
 11
 FizzBuzzFoo
 ```
+
+## Future State
+### Database Design for Logging Requests and Responses
+
+In a future feature implementation, I will be adding a database that records requests, errors, and responses.
+
+If you want to see more detail outside of the diagram listed below, please view the [SQL Script for the purposed database](https://github.com/BrendanSluke/FizzBuzzSolver/blob/main/FizzBuzzSolver/Database/DatabaseCreationScript.sql).
+
+Here is a database diagram for the future SQL database:
+![SQL Database Design](https://github.com/BrendanSluke/FizzBuzzSolver/blob/main/FizzBuzzSolver/Database/SqlDatabaseDesignDiagram.JPG?raw=true "SQL Database Design")
