@@ -1,4 +1,5 @@
-﻿using FizzBuzzSolver.Models;
+﻿using FizzBuzzSolver.Constants;
+using FizzBuzzSolver.Models;
 using FizzBuzzSolver.Models.API;
 
 namespace FizzBuzzSolver.Data.Models
@@ -19,12 +20,12 @@ namespace FizzBuzzSolver.Data.Models
         {
             if (Divisors.Count() == 0)
             {
-                return (false, "Your request must include atleast one divisor.");
+                return (false, SolveRequestErrors.RequestMustHaveAtleastOneDivisor);
             }
 
             if (MaxNumber <= 0)
             {
-                return (false, "MaxNumber must be greater than or equal to zero.");
+                return (false, SolveRequestErrors.MaxNumberMustBeGreaterThanZero);
             }
 
             var checkForDuplicateDivisorKeys = CheckForDuplicateDivisorKeys();
