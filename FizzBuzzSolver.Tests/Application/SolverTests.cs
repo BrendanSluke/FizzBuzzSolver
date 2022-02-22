@@ -1,5 +1,6 @@
 ﻿using FizzBuzzSolver.Application;
 using FizzBuzzSolver.Data.Models;
+using FizzBuzzSolver.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,11 @@ namespace FizzBuzzSolver.Tests.Application
         [TestMethod]
         public void Solve_Success_Basic_Fizz_Buzz()
         {
-            var divisors = new List<KeyValuePair<long, string>>()
+
+            var divisors = new Divisor[2]
             {
-                new KeyValuePair<long, string>(3, "Fizz"),
-                new KeyValuePair<long, string>(5, "Buzz")
+                new Divisor(3, "Fizz"),
+                new Divisor(5, "Buzz")
             };
 
             var solveRequest = new SolveRequest(5, divisors);
@@ -37,11 +39,11 @@ namespace FizzBuzzSolver.Tests.Application
         [TestMethod]
         public void Solve_Success_Basic_Fizz_Buzz_Divisors_Unsorted()
         {
-            // Create a divisors list where the keys are not sorted in ascending order
-            var divisors = new List<KeyValuePair<long, string>>()
+            // Create a divisors list where the numbers are not sorted in ascending order
+            var divisors = new Divisor[2]
             {
-                new KeyValuePair<long, string>(5, "Buzz"),
-                new KeyValuePair<long, string>(3, "Fizz")
+                new Divisor(5, "Buzz"),
+                new Divisor(3, "Fizz")
             };
 
             var solveRequest = new SolveRequest(5, divisors);
@@ -64,10 +66,10 @@ namespace FizzBuzzSolver.Tests.Application
         [TestMethod]
         public void Solve_Success_2_Divisors_For_A_Single_Number()
         {
-            var divisors = new List<KeyValuePair<long, string>>()
+            var divisors = new Divisor[2]
             {
-                new KeyValuePair<long, string>(2, "Fizz"),
-                new KeyValuePair<long, string>(3, "Buzz")
+                new Divisor(2, "Fizz"),
+                new Divisor(3, "Buzz")
             };
 
             var solveRequest = new SolveRequest(8, divisors);
@@ -92,11 +94,11 @@ namespace FizzBuzzSolver.Tests.Application
         [TestMethod]
         public void Solve_FizzBuzz_Success_3_Divisors_For_A_Single_Number()
         {
-            var divisors = new List<KeyValuePair<long, string>>()
+            var divisors = new Divisor[3]
             {
-                new KeyValuePair<long, string>(2, "Fizz"),
-                new KeyValuePair<long, string>(3, "Buzz"),
-                new KeyValuePair<long, string>(4, "Foo")
+                new Divisor(2, "Fizz"),
+                new Divisor(3, "Buzz"),
+                new Divisor(4, "Foo")
             };
 
             var solveRequest = new SolveRequest(12, divisors);

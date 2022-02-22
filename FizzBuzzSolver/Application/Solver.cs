@@ -9,24 +9,25 @@ namespace FizzBuzzSolver.Application
             string[] outputValues = new string[solveRequest.MaxNumber];
 
             // Sort the divisor keys (numbers) in ascending order
-            var divisorsOrderedAscending = solveRequest.Divisors.OrderBy(divisor => divisor.Key);
+            var divisorsOrderedAscending = solveRequest.Divisors.OrderBy(divisor => divisor.DivisorNumericValue);
 
-            for (int i = 1; i < solveRequest.MaxNumber + 1; i++)
+            for (int i = 0; i < solveRequest.MaxNumber; i++)
             {
                 var atleastOneValidDivisorFound = false;
+                var currentNumberToEvaluate = i + 1; // The actual number to evaluate is 1 greater than the current index
 
                 foreach (var divisor in divisorsOrderedAscending)
                 {
-                    if (i % divisor.Key == 0)
+                    if (currentNumberToEvaluate % divisor.DivisorNumericValue == 0)
                     {
-                        outputValues[i-1] += divisor.Value;
+                        outputValues[i] += divisor.PrintableOutput;
 
                         if(!atleastOneValidDivisorFound) atleastOneValidDivisorFound = true;
                     }
                 }
 
                 // If no valid divisors were found, just print the number
-                if (!atleastOneValidDivisorFound) outputValues[i - 1] = i.ToString();     
+                if (!atleastOneValidDivisorFound) outputValues[i] = currentNumberToEvaluate.ToString();     
             }
 
             return outputValues;

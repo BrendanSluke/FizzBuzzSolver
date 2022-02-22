@@ -1,10 +1,11 @@
-﻿using FizzBuzzSolver.Models.API;
+﻿using FizzBuzzSolver.Models;
+using FizzBuzzSolver.Models.API;
 
 namespace FizzBuzzSolver.Data.Models
 {
     public class SolveRequest : IFizzBuzzSolverRequest
     {
-        public SolveRequest(long maxNumber, List<KeyValuePair<long, string>> divisors)
+        public SolveRequest(long maxNumber, Divisor[] divisors)
         {
             MaxNumber = maxNumber;
             Divisors = divisors;
@@ -12,11 +13,11 @@ namespace FizzBuzzSolver.Data.Models
 
         public long MaxNumber { get; private set; }
 
-        public List<KeyValuePair<long, string>> Divisors { get; set; }
+        public Divisor[] Divisors { get; set; }
 
         public (bool, string) ValidateRequest()
         {
-            if (Divisors.Count == 0)
+            if (Divisors.Count() == 0)
             {
                 return (false, "Your request must include atleast one divisor.");
             }
@@ -38,7 +39,7 @@ namespace FizzBuzzSolver.Data.Models
         private (bool, string) CheckForDuplicateDivisorKeys()
         {
             var uniqueDivisorKeys = new HashSet<long>();
-            var duplicateKeys = Divisors.Where(divisor => !uniqueDivisorKeys.Add(divisor.Key)).Select(divisor => divisor.Key).ToList();
+            var duplicateKeys = Divisors.Where(divisor => !uniqueDivisorKeys.Add(divisor.DivisorNumericValue)).Select(divisor => divisor.DivisorNumericValue).ToList();
             var duplicateKeysCount = duplicateKeys.Count();
 
             if (duplicateKeysCount != 0)

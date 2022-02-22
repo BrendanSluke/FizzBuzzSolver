@@ -21,7 +21,9 @@ The API has one endpoint `/api/solve` and the endpoint takes in a JSON body.
 This JSON body consists of 2 properties:
 
 - `maxNumber`: Indicates how many numbers the current FizzBuzz request should solve for (Example: 100 in the classic FizzBuzz case)
-- `divisors`: This is a dynamically sized collection of key-value pairs that allows you to customize the total number of divisors along with each divisor's numeric value and the output string value. (Example: 3-Fizz and 5-Buzz for the classic FizzBuzz case)
+- `divisors`: This is a dynamically sized collection of of type `Divisor`, that has 2 properties, a `number` and a `printableOutput`. (Example: 3-Fizz and 5-Buzz for the classic FizzBuzz case)
+
+The `Divisor` type allows you to customize the total number of divisors along with each divisor's numeric value and the printable output value.
 
 ### Example Input JSON Body 1 (Classic Case)
 
@@ -30,12 +32,12 @@ This JSON body consists of 2 properties:
   "maxNumber": 15,
   "divisors": [
     {
-      "key": 3,
-      "value": "Fizz"
+      "divisorNumericValue": 3,
+      "printableOutput": "Fizz"
     },
     {
-      "key": 5,
-      "value": "Buzz"
+      "divisorNumericValue": 5,
+      "printableOutput": "Buzz"
     }
   ]
 }
@@ -72,16 +74,16 @@ Here is one more example with 3 divisors:
   "maxNumber": 12,
   "divisors": [
     {
-      "key": 2,
-      "value": "Fizz"
+      "divisorNumericValue": 2,
+      "printableOutput": "Fizz"
     },
     {
-      "key": 3,
-      "value": "Buzz"
+      "divisorNumericValue": 3,
+      "printableOutput": "Buzz"
     },
     {
-      "key": 4,
-      "value": "Foo"
+      "divisorNumericValue": 4,
+      "printableOutput": "Foo"
     }
   ]
 }
