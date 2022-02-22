@@ -8,9 +8,22 @@ This specific implementation is written in C# and it uses the ASP.NET Core frame
 
 ## Getting Started Using the API
 
-The quickest way to get the Fizz Buzz Solver up and running is to run the API locally.
+To begin using the API, you have two options:
+- Use the Demo Web API
+- Clone the Repo and Run the API Locally
 
-Once you have an instance of the API running, you can navigate to `/swagger/index.html` to start manually making requests against the `/api/solve` endpoint.
+### Using the Demo Web API
+
+The Web API is currently deployed on Azure using a basic shared server.
+
+You can find the demo swagger document by navigating to this URL:
+
+https://fizzbuzzsolver.azurewebsites.net/swagger/index.html
+
+### Running the API Locally
+If you want to run the API locally, clone down this repo and then debug the API locally.
+
+Once you have a debug instance of the API running, you can navigate to `/swagger/index.html` to start manually making requests against the `/api/solve` endpoint.
 
 Example Requests and Responses are listed below.
 
@@ -105,3 +118,13 @@ Fizz
 11
 FizzBuzzFoo
 ```
+
+## Future State
+### Database Design for Logging Requests and Responses
+
+In a future feature implementation, I will be adding a database that records requests, errors, and responses.
+
+If you want to see more detail outside of the diagram listed below, please view the [SQL Script for the purposed database](https://github.com/BrendanSluke/FizzBuzzSolver/blob/main/FizzBuzzSolver/Database/DatabaseCreationScript.sql).
+
+Here is a database diagram for the future SQL database:
+![SQL Database Design](https://github.com/BrendanSluke/FizzBuzzSolver/blob/main/FizzBuzzSolver/Database/SqlDatabaseDesignDiagram.JPG?raw=true "SQL Database Design")
